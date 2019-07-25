@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+	<title>Login - Billability Dashboard</title> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+		 
+    </head>
+    <body class="text-center">
+    <div class="container py-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center text-white mb-4">Login Form</h2>
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+
+                    <!-- form card login -->
+                    <div class="card rounded-0">
+                        <div class="card-header">
+                            <h4 class="mb-0 float-left">Billability Dashboard Login</h4>
+                        </div>
+                        <div class="row" th:if="${param.error}">
+            				Invalid username and password.
+        				</div>
+				        <div class="row" th:if="${param.logout}">
+				            You have been logged out.
+				        </div>
+                        <div class="card-body">
+                            <form th:action="@{/login-process}" class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                                <div class="form-group">
+                                    <label for="email" class="float-left">Email address:</label>
+                                    <input type="text" class="form-control rounded-0" name="email" id="email" placeholder="Enter email address" required="">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd" class="float-left">Password:</label>
+                                    <input type="password" name="password" class="form-control rounded-0" id="password" placeholder="Enter password" required="">
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" id="btnLogin">Sign in</button>
+                            </form>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                    <!-- /form card login -->
+		<p class="mt-5 mb-3 text-muted">&copy; 2019 Tech Mahindra Limited</p>	
+                </div>
+
+
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+	</div>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.4.1/jquery.min.js}"></script>	
+    </body>
+</html>

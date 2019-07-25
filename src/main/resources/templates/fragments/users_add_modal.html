@@ -1,0 +1,59 @@
+<!-- The User Add Modal -->
+<div th:fragment="users_add_modal">
+	 <div class="modal" id="userFormModal">
+	   <div class="modal-dialog">
+	     <div class="modal-content">
+	     <form th:action="@{/user-register}" th:object="${user}" method="post">
+	       <!-- Modal Header -->
+	       <div class="modal-header">
+	         <h4 class="modal-title">Add new user</h4>
+	         <button type="button" class="close" data-dismiss="modal">&times;</button>
+	       </div>
+	       
+	       <!-- Modal body -->
+	       <div class="modal-body">
+	         	  <div class="form-group row">
+	         	  	<div class="col-6">
+				    	<label for="firstname">First Name: </label>
+				    	<input type="text" class="form-control" th:field="*{firstname}">				    	
+				    </div>
+				    <div class="col-6">
+				    	<label for="last_name">Last Name:</label>
+				    	<input type="text" class="form-control" id="lastname" name="lastname">				    	
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="email">Email address:</label>
+				    <input type="email" class="form-control" id="email" name="email">
+				  </div>
+				  <div class="form-group row">
+				  	<div class="col-6">
+				    	<label for="pwd">Password:</label>
+				    	<input type="password" class="form-control" id="pwd" name="pwd">
+				    </div>
+				  	<div class="col-6">
+				    	<label for="conf_pwd">Confirm Password:</label>
+				    	<input type="password" class="form-control" id="conf_pwd" name="pwd">
+				    </div>
+				  </div>
+				  <div class="form-group">
+					  <label for="role">Role:</label>
+					  <select class="form-control" id="role" name="role">
+					    <option value="">Select role</option>
+					    <option value="Delivery Manager">Delivery Manager</option>
+					    <option value="Admin">Admin</option>
+					  </select>
+				</div>			
+	       </div>
+	       
+	       <!-- Modal footer -->
+	       <div class="modal-footer">
+	        <button type="submit" name="save" id="save" class="btn btn-primary">Save</button>
+	         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	       </div>
+	       
+	      </form> 
+	     </div>
+	   </div>
+	</div>
+</div>			
